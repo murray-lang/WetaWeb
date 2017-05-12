@@ -1,0 +1,117 @@
+<div ng-controller="ConfigCtrl as confctrl"
+    class="weta config"
+     ng-cloak=""
+    id="configPopupContainer">
+    <div class="weta config options" layout="row">
+        <!--<p>{{confctrl.pinSelections}}</p>-->
+        <div class="weta caps main"
+             layout="column"
+             
+             weta-pin-list=""
+             config="confctrl.configUtils"
+             on-sel-change="confctrl.onCapsChanged">
+        </div>
+
+        <div class="weta io"  layout="column" layout-margin="">
+
+            <div class="weta digital main"
+                 layout="column"
+                 
+                 layout-align="start center"
+                 
+                 weta-periph-list=""
+                 periph="digital"
+                 config="confctrl.configUtils">
+
+            </div>
+
+            <div class="weta pwm main"
+                 layout="column"
+                 
+                 layout-align="start center"
+                 
+                 weta-periph-list=""
+                 periph="pwm"
+                 config="confctrl.configUtils">
+            </div>
+
+            <div class="weta analog"  layout="row" layout-margin="" layout-align="center start">
+                <div class="weta adc main"
+                     
+                     weta-periph-list=""
+                     periph="adc"
+                     config="confctrl.configUtils">
+                </div>
+
+                <div class="weta dac main"
+                     layout="column"
+                     
+                     weta-periph-list=""
+                     periph="dac"
+                     config="confctrl.configUtils">
+                </div>
+
+            </div>
+            <div class="weta uart main"
+                 layout="column"
+                 layout-align="start center"
+                 layout-margin=""
+                 
+                 weta-periph-list=""
+                 periph="uart"
+                 config="confctrl.configUtils">
+            </div>
+
+        </div>
+        <div class="weta devices"  layout="column" layout-align="start left">
+            <div class="weta simpleui main"
+                 layout="column"
+                 layout-margin=""
+                 layout-align="start left"
+                 weta-device-list=""
+                 device="simple"
+                 device-utils="confctrl.deviceUtils">
+            </div>
+
+            <div class="weta motor main"
+                 layout="column"
+                 layout-margin=""
+                 layout-align="start left"
+                 weta-device-list=""
+                 device="motor"
+                 device-utils="confctrl.deviceUtils">
+            </div>
+
+            <div class="weta servo main"
+                 layout="column"
+                 layout-margin=""
+                 layout-align="start left"
+                 weta-device-list=""
+                 device="servo"
+                 device-utils="confctrl.deviceUtils">
+            </div>
+
+            <div class="weta stepper main"
+                 layout="column"
+                 layout-margin=""
+                 layout-align="start left"
+                 weta-device-list=""
+                 device="stepper"
+                 device-utils="confctrl.deviceUtils">
+            </div>
+
+            <div class="weta shifter main"
+                 layout="column"
+                 layout-margin=""
+                 layout-align="start left"
+                 weta-device-list=""
+                 device="shifter"
+                 device-utils="confctrl.deviceUtils">
+            </div>
+        </div>
+    </div>
+    <!--<p>{{confctrl.tempConfig}}</p>-->
+    <script type="text/ng-template" id="programDialog.html">
+
+    </script>
+</div>

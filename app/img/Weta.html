@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="wetaApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="wetaApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="wetaApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html ng-app="wetaApp" class="js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths ng-scope" style="" lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Weta</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="Weta_files/normalize.css">
+  <link rel="stylesheet" href="Weta_files/main.css">
+  <link rel="stylesheet" href="Weta_files/app.css">
+  <script src="Weta_files/modernizr-2.js"></script>
+</head>
+<body class="weta">
+
+  <ul class="menu">
+    <li><a href="#%21/blockly">Blockly</a></li>
+    <li><a href="#%21/editor">Editor</a></li>
+    <li><a href="#%21/configure">Configuration</a></li>
+    <li><a href="#%21/monitor">Monitor</a></li>
+  </ul>
+
+
+  <!--[if lt IE 7]>
+     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <!-- ngView: --><div class="weta ng-scope" ng-view=""><div ng-controller="ConfigCtrl as confctrl" class="weta config ng-scope">
+
+    <div class="weta connection">
+        <form class="weta ng-pristine ng-valid ng-valid-required ng-valid-pattern" ng-submit="confctrl.get()" name="queryForm">
+            <input ng-model="confctrl.address" required="true" ng-pattern="/\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required ng-valid-pattern" value="10.1.1.9" type="text">
+            <button type="submit" ng-disabled="queryForm.$invalid">Query Robot</button>
+            <!--<p>{{confctrl.caps}}</p>-->
+            <!--<p>{{confctrl.config}}</p>-->
+            <!--<p>{{confctrl.clickMsg}}</p>-->
+            <!--<p>{{confctrl.msg}}</p>-->
+        </form>
+    </div>
+    <div class="weta caps main ng-isolate-scope" weta-pin-list="" caps="confctrl.tempConfig.caps" on-sel-change="confctrl.onCapsChanged"><div class="weta caps">
+    <table class="weta caps">
+        <thead class="weta caps">
+            <tr class="weta caps pin heading">
+                <!-- ngRepeat: head in header.row1 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="head in header.row1 track by $index" colspan="1"></th><!-- end ngRepeat: head in header.row1 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="head in header.row1 track by $index" colspan="2">Digital</th><!-- end ngRepeat: head in header.row1 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="head in header.row1 track by $index" colspan="1"></th><!-- end ngRepeat: head in header.row1 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="head in header.row1 track by $index" colspan="2">Analog</th><!-- end ngRepeat: head in header.row1 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="head in header.row1 track by $index" colspan="1"></th><!-- end ngRepeat: head in header.row1 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="head in header.row1 track by $index" colspan="2">I2C</th><!-- end ngRepeat: head in header.row1 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="head in header.row1 track by $index" colspan="4">SPI</th><!-- end ngRepeat: head in header.row1 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="head in header.row1 track by $index" colspan="4">UART</th><!-- end ngRepeat: head in header.row1 track by $index -->
+            </tr>
+            <tr class="weta caps pin heading">
+                <!-- ngRepeat: cap in header.row2 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="cap in header.row2 track by $index">GPIO</th><!-- end ngRepeat: cap in header.row2 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="cap in header.row2 track by $index">In</th><!-- end ngRepeat: cap in header.row2 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="cap in header.row2 track by $index">Out</th><!-- end ngRepeat: cap in header.row2 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="cap in header.row2 track by $index">PWM</th><!-- end ngRepeat: cap in header.row2 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="cap in header.row2 track by $index">In</th><!-- end ngRepeat: cap in header.row2 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="cap in header.row2 track by $index">Out</th><!-- end ngRepeat: cap in header.row2 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="cap in header.row2 track by $index">Touch</th><!-- end ngRepeat: cap in header.row2 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="cap in header.row2 track by $index">SCL</th><!-- end ngRepeat: cap in header.row2 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="cap in header.row2 track by $index">SDA</th><!-- end ngRepeat: cap in header.row2 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="cap in header.row2 track by $index">MISO</th><!-- end ngRepeat: cap in header.row2 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="cap in header.row2 track by $index">MOSI</th><!-- end ngRepeat: cap in header.row2 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="cap in header.row2 track by $index">SCLK</th><!-- end ngRepeat: cap in header.row2 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="cap in header.row2 track by $index">SS</th><!-- end ngRepeat: cap in header.row2 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="cap in header.row2 track by $index">Rx</th><!-- end ngRepeat: cap in header.row2 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="cap in header.row2 track by $index">Tx</th><!-- end ngRepeat: cap in header.row2 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="cap in header.row2 track by $index">RTS</th><!-- end ngRepeat: cap in header.row2 track by $index --><th class="weta caps pin heading ng-binding ng-scope" ng-repeat="cap in header.row2 track by $index">CTS</th><!-- end ngRepeat: cap in header.row2 track by $index -->
+            </tr>
+        </thead>
+        <tbody class="weta caps pin">
+            <!-- ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">2</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">4</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">5</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">12</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">13</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">14</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">15</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">16</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">17</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">18</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">19</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">21</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">22</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">23</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">25</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">26</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">27</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">32</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">33</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">34</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">35</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-touched ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index --><tr class="weta caps pin ng-scope" ng-repeat="pin in caps.pins track by $index">
+                <td class="weta caps pin ng-binding">36</td>
+                <!-- ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-valid ng-scope ng-dirty ng-valid-parse ng-empty ng-touched" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 --><input class="weta caps pin ng-pristine ng-untouched ng-valid ng-scope ng-empty" ng-model="(selections | filter:{pin:pin.pin}:equals)[0][cap]" ng-click="onCapClick($event, pin, cap)" ng-if="pin[cap]==1" type="checkbox"><!-- end ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index --><td class="weta caps pin ng-scope" ng-repeat="cap in caps.order track by $index">
+                    <!-- ngIf: pin[cap]==1 -->
+                </td><!-- end ngRepeat: cap in caps.order track by $index -->
+
+            </tr><!-- end ngRepeat: pin in caps.pins track by $index -->
+
+        </tbody>
+    </table>
+</div></div>
+    <div class="weta digital main ng-isolate-scope" weta-digital-list="" digital="confctrl.tempConfig.functions.digital"><div class="weta digital">
+    <!--<p>Incoming message: {{tempMsg}}</p>-->
+    <table class="weta digital">
+        <thead class="weta digital">
+            <tr class="weta digital">
+                <th class="weta digital ng-binding" colspan="8">Digital I/O</th>
+
+            </tr>
+            <tr class="weta digital">
+                <!-- ngRepeat: opt in digital.options track by $index --><th class="weta digital ng-binding ng-scope" ng-repeat="opt in digital.options track by $index">GPIO</th><!-- end ngRepeat: opt in digital.options track by $index --><th class="weta digital ng-binding ng-scope" ng-repeat="opt in digital.options track by $index">In</th><!-- end ngRepeat: opt in digital.options track by $index --><th class="weta digital ng-binding ng-scope" ng-repeat="opt in digital.options track by $index">Out</th><!-- end ngRepeat: opt in digital.options track by $index --><th class="weta digital ng-binding ng-scope" ng-repeat="opt in digital.options track by $index">Pullup</th><!-- end ngRepeat: opt in digital.options track by $index --><th class="weta digital ng-binding ng-scope" ng-repeat="opt in digital.options track by $index">Pulldown</th><!-- end ngRepeat: opt in digital.options track by $index --><th class="weta digital ng-binding ng-scope" ng-repeat="opt in digital.options track by $index">Open Drain</th><!-- end ngRepeat: opt in digital.options track by $index --><th class="weta digital ng-binding ng-scope" ng-repeat="opt in digital.options track by $index">Invert</th><!-- end ngRepeat: opt in digital.options track by $index --><th class="weta digital ng-binding ng-scope" ng-repeat="opt in digital.options track by $index">Debounce</th><!-- end ngRepeat: opt in digital.options track by $index -->
+            </tr>
+         </thead>
+        <tbody class="weta digital">
+            <!-- ngRepeat: item in items | orderBy: '+io' -->
+         </tbody>
+    </table>
+</div></div>
+    <div class="weta pwm main ng-isolate-scope" weta-pwm-timer-list="" timers="confctrl.tempConfig.functions.pwm.parts.timer"><div class="weta pwm timer">
+    <!--<p>{{items[0]}}</p>-->
+    <table class="weta pwm timer">
+        <thead class="weta pwm timer">
+            <tr class="weta pwm timer">
+                <th class="weta pwm timer ng-binding" colspan="3">PWM Timer</th>
+
+            </tr>
+            <tr class="weta pwm timer">
+                <th class="weta pwm timer">Id</th>
+                <!-- ngRepeat: opt in timers.options track by $index --><th class="weta pwm timer ng-binding ng-scope" ng-repeat="opt in timers.options track by $index">Frequency</th><!-- end ngRepeat: opt in timers.options track by $index --><th class="weta pwm timer ng-binding ng-scope" ng-repeat="opt in timers.options track by $index">Width</th><!-- end ngRepeat: opt in timers.options track by $index -->
+            </tr>
+         </thead>
+        <tbody class="weta pwm timer">
+            <!-- ngRepeat: timer in items | orderBy: '+id' --><tr class="weta pwm timer ng-scope" ng-repeat="timer in items | orderBy: '+id'">
+                <td class="weta pwm timer ng-binding">0</td>
+                <!-- ngRepeat: attr in timers.options track by $index --><td class="weta pwm timer ng-scope" ng-repeat="attr in timers.options track by $index">
+                    <!-- ngIf: attr.type == 'int' --><input class="weta pwm timer ng-pristine ng-untouched ng-valid ng-scope ng-not-empty" ng-model="timer[attr.name]" ng-if="attr.type == 'int'" value="100" type="number"><!-- end ngIf: attr.type == 'int' -->
+                    <!-- ngIf: angular.isArray(attr.type) -->
+
+
+
+                </td><!-- end ngRepeat: attr in timers.options track by $index --><td class="weta pwm timer ng-scope" ng-repeat="attr in timers.options track by $index">
+                    <!-- ngIf: attr.type == 'int' -->
+                    <!-- ngIf: angular.isArray(attr.type) --><select ng-model="timer[attr.name]" ng-options="width for width in attr.type" ng-if="angular.isArray(attr.type)" class="ng-pristine ng-untouched ng-valid ng-scope ng-not-empty"><option label="10" value="number:10" selected="selected">10</option><option label="11" value="number:11">11</option><option label="12" value="number:12">12</option><option label="13" value="number:13">13</option><option label="14" value="number:14">14</option><option label="15" value="number:15">15</option></select><!-- end ngIf: angular.isArray(attr.type) -->
+
+
+
+                </td><!-- end ngRepeat: attr in timers.options track by $index -->
+            </tr><!-- end ngRepeat: timer in items | orderBy: '+id' -->
+         </tbody>
+    </table>
+</div></div>
+
+</div>
+</div>
+
+  <!--<div>Angular seed app: v<span app-version></span></div>-->
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+   -->
+  <script src="Weta_files/angular.js"></script>
+  <script src="Weta_files/angular-route.js"></script>
+  <script src="Weta_files/raphael-2.js"></script>
+  <script src="Weta_files/justgage.js"></script>
+  <script src="Weta_files/WetaService.js"></script>
+  <script src="Weta_files/SimpleGauge.js"></script>
+  <script src="Weta_files/WetaPinList.js"></script>
+  <script src="Weta_files/WetaDigitalList.js"></script>
+  <script src="Weta_files/WetaPwmTimerList.js"></script>
+  <script src="Weta_files/blockly.js"></script>
+  <script src="Weta_files/editor.js"></script>
+  <script src="Weta_files/configure.js"></script>
+  <script src="Weta_files/monitor.js"></script>
+  <script src="Weta_files/app.js"></script>
+  <script src="Weta_files/version.js"></script>
+  <script src="Weta_files/version-directive.js"></script>
+  <script src="Weta_files/interpolate-filter.js"></script>
+
+
+
+</body></html>

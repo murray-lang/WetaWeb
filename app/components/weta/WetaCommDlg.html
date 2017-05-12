@@ -1,0 +1,23 @@
+<md-dialog aria-label="Program Configuration">
+    <form ng-cloak="">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Configure Device</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <p>{{progressMsg}}</p>
+                <md-progress-linear md-mode="determinate" value="{{progress}}"></md-progress-linear>
+                <div layout="row" layout-sm="column" layout-align="space-around">
+                    <md-progress-circular md-mode="indeterminate" ng-disabled="!longOperation"></md-progress-circular>
+                </div>
+                <textarea ng-model="journal"></textarea>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>

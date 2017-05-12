@@ -1,0 +1,5 @@
+{
+    "profiles": [
+        { "name": "Nano32", "file": "Nano32.json" }
+    ]
+}

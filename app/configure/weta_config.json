@@ -1,0 +1,80 @@
+{
+    "digital": [
+        {
+            "id": 0,
+            "io": 14,
+            "in": 1,
+            "out": 0,
+            "pullup": 1,
+            "invert": 1
+        },
+        {
+            "id": 1,
+            "io": 16,
+            "in": 0,
+            "out": 1,
+            "invert": 1
+        },
+        {
+            "id": 2,
+            "io": 23,
+            "in": 0,
+            "out": 1
+        },
+        {
+            "id": 3,
+            "io": 5,
+            "in": 0,
+            "out": 1
+        },
+        {
+            "id": 4,
+            "io": 2,
+            "in": 0,
+            "out": 1
+        },
+        {
+            "id": 5,
+            "io": 4,
+            "in": 0,
+            "out": 1
+        },
+        {
+            "id": 6,
+            "io": 17,
+            "in": 0,
+            "out": 1
+        }
+    ],
+    "pwm": {
+        "timers": [
+            {
+                "id": 0,
+                "frequency": 100,
+                "width": 10
+            }
+        ],
+        "channels": [
+            {
+                "id": 0,
+                "io": 19,
+                "timer": 0
+            },
+            {
+                "id": 1,
+                "io": 18,
+                "timer": 0
+            }
+        ]
+    },
+    "adc": {
+        "depth": 12,
+        "channels": [
+            {
+                "id": 0,
+                "io": 36,
+                "gain": 0
+            }
+        ]
+    }
+}

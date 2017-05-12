@@ -1,0 +1,226 @@
+{
+    "basic": {
+        "gpio": {
+            "output": {
+                "label": "Is Output",
+                "type": "bool"
+            },
+            "pullup": {
+                "label": "Internal Pullup",
+                "type": "bool"
+            },
+            "pulldown": {
+                "label": "Internal Pulldown",
+                "type": "bool"
+            },
+            "invert": {
+                "label": "Low Means On",
+                "type": "bool"
+            },
+            "debounce": {
+                "label": "Debounce Input",
+                "type": "bool"
+            }
+        },
+        "adc": {
+            "depth": {
+                "label": "Resolution (bits)",
+                "type": "enum"
+            },
+            "gain": {
+                "label": "",
+                "type": "int"
+            }
+        },
+        "pwm": {
+            "frequency": {
+                "label": "Frequency",
+                "type": "int"
+            },
+            "depth": {
+                "label": "Resolution (bits)",
+                "type": "enum"
+            }
+        },
+        "dac": {
+            "depth": {
+                "label": "Resolution (bits)",
+                "type": "enum"
+            }
+        }
+    },
+    "composite": {
+        "uart": {
+            "label": "UART",
+            "pins": {
+                "rx": {
+                    "label": "RX pin",
+                    "cap":"uart_rx"
+                },
+                "tx": {
+                    "label": "TX pin",
+                    "cap":"uart_tx"
+                },
+                "rts": {
+                    "label": "RTS pin",
+                    "cap":"uart_rts"
+                },
+                "cts": {
+                    "label": "CTS pin",
+                    "cap":"uart_cts"
+                }
+            },
+            "config": {
+                "baud": {
+                    "label": "Baud rate",
+                    "type": "int"
+                },
+                "databits": {
+                    "label": "Data bits",
+                    "type": "enum",
+                    "enum": ["5", "6", "7", "8"]
+                },
+                "stopbits": {
+                    "label": "Stop bits",
+                    "type": "enum",
+                    "enum": ["1", "1.5", "2"]
+                },
+                "parity": {
+                    "label": "Parity",
+                    "type": "enum",
+                    "enum": ["odd", "even", "none"]
+                },
+                "flow": {
+                    "label": "Flow control",
+                    "type": "enum",
+                    "enum": ["none", "hardware", "software"]
+                }
+            }
+        },
+        "shifter": {
+            "label": "Shift Register",
+            "pins": {
+                "data": {
+                    "label": "Data pin",
+                    "cap": "dout"
+                },
+                "clock": {
+                    "label": "Clock pin",
+                    "cap": "dout"
+                },
+                "strobe": {
+                    "label": "Strobe pin",
+                    "cap": "dout"
+                }
+            },
+            "config": {
+                "dir": {
+                    "label": "Data direction",
+                    "type": "enum",
+                    "enum": ["In", "Out"]
+                }
+            }
+        },
+        "motor": {
+            "label": "DC Motor",
+            "pins": {
+                "pwm": {
+                    "label": "PWM pin",
+                    "cap": "pwm"
+                },
+                "either": {
+                    "ab": {
+                        "label": "Full H-Bridge Control",
+                        "a": {
+                            "label": "A pin",
+                            "cap": "dout"
+                        },
+                        "b": {
+                            "label": "B pin",
+                            "cap": "dout"
+                        }
+                    },
+                    "dir": {
+                        "label": "Single Direction pin",
+                        "dir": {
+                            "label": "Direction pin",
+                            "cap": "dout"
+                        }
+                    }
+                }
+            }
+        },
+        "stepper": {
+            "label": "Stepper Motor",
+            "pins": {
+                "either": {
+                    "four": {
+                        "label": "4 pin control",
+                        "a": {
+                            "label": "A pin",
+                            "cap": "dout"
+                        },
+                        "b": {
+                            "label": "B pin",
+                            "cap": "dout"
+                        },
+                        "c": {
+                            "label": "C pin",
+                            "cap": "dout"
+                        },
+                        "d": {
+                            "label": "D pin",
+                            "cap": "dout"
+                        }
+                    },
+                    "two": {
+                        "label": "2 pin control",
+                        "a": {
+                            "label": "A pin",
+                            "cap": "dout"
+                        },
+                        "b": {
+                            "label": "B pin",
+                            "cap": "dout"
+                        }
+                    },
+                    "shifter": {
+                        "label": "Use shift register",
+                        "composite":"shifter"
+                    }
+                }
+            }
+        },
+        "servo": {
+            "label": "Servo Motor",
+            "pins":{
+                "pwm":{
+                    "label": "PWM pin",
+                    "cap": "pwm"
+                }
+            },
+            "config": {
+                "min": {
+                    "label": "Minimum duty",
+                    "type": "int",
+                    "default": 110
+                },
+                "max": {
+                    "label": "Maximum duty",
+                    "type": "int",
+                    "default": 490
+                },
+                "zero": {
+                    "label": "Duty at 0",
+                    "type": "int",
+                    "default": 300
+                },
+                "per10degrees": {
+                    "label": "Duty change per 10º",
+                    "type": "int",
+                    "default": -20
+                }
+            }
+        }
+    }
+}

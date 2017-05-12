@@ -1,0 +1,242 @@
+{
+    "simple": {
+        "description": "Simple Interfaces",
+        "max": 1,
+        "parts": [
+            {
+                "name": "id",
+                "description": "Id",
+                "type": "id"
+            },
+            {
+                "name": "led",
+                "description": "User LED",
+                "type": "ref",
+                "ref": "digital out"
+            },
+            {
+                "name": "beeper",
+                "description": "Beeper",
+                "type": "ref",
+                "ref": "pwm channels"
+            }
+        ]
+    },
+    "motor": {
+        "description": "DC Motors",
+        "max": 8,
+        "parts": [
+            {
+                "name": "id",
+                "description": "Id",
+                "type": "id"
+            },
+            {
+                "name": "pwm",
+                "description": "PWM",
+                "type": "ref",
+                "ref": "pwm channels"
+            },
+            {
+                "type": "variations",
+                "variations": [
+                     {
+                        "name": "dir",
+                        "description": "Dir",
+                        "parts": [
+                            {
+                                "name": "dir",
+                                "description": "Dir",
+                                "type": "ref",
+                                "ref": "digital out"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "ab",
+                        "description": "A/B",
+                        "parts": [
+                           {
+                                "name": "a",
+                                "description": "A",
+                                "type": "ref",
+                                "ref": "digital out"
+                            },
+                            {
+                                "name": "b",
+                                "description": "B",
+                                "type": "ref",
+                                "ref": "digital out"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "stepper": {
+        "description": "Stepper Motors",
+        "max": 8,
+        "parts": [
+            {
+                "name": "id",
+                "description": "Id",
+                "type": "id"
+            },
+            {
+                "name": "reverse",
+                "description": "Reverse",
+                "type": "bool"
+            },
+            {
+                "type": "variations",
+                "variations": [
+                    {
+                        "name": "half",
+                        "description": "2 Pins",
+                        "parts": [
+                            {
+                                "name": "a",
+                                "description": "A",
+                                "type": "ref",
+                                "ref": "digital out"
+                            },
+                            {
+                                "name": "b",
+                                "description": "B",
+                                "type": "ref",
+                                "ref": "digital out"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "full",
+                        "description": "4 Pins",
+                        "parts": [
+                            {
+                                "name": "a",
+                                "description": "A",
+                                "type": "ref",
+                                "ref": "digital out"
+                            },
+                            {
+                                "name": "b",
+                                "description": "B",
+                                "type": "ref",
+                                "ref": "digital out"
+                            },
+                            {
+                                "name": "c",
+                                "description": "C",
+                                "type": "ref",
+                                "ref": "digital out"
+                            },
+                            {
+                                "name": "d",
+                                "description": "D",
+                                "type": "ref",
+                                "ref": "digital out"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "shifter",
+                        "description": "Shift Register",
+                        "parts": [
+                            {
+                                "name": "shifter",
+                                "description": "Shifter",
+                                "type": "ref",
+                                "ref": "shifter"
+                            },
+                            {
+                                "name": "offset",
+                                "description": "Offset",
+                                "type": "int",
+                                "default": 0
+                            }
+                        ]
+
+                    }
+                ]
+            }
+        ]
+    },
+    "shifter": {
+        "description": "Shift Registers",
+        "multipleOwners": true,
+        "max": 4,
+        "parts": [
+            {
+                "name": "id",
+                "description": "Id",
+                "type": "id"
+            },
+            {
+                "name": "width",
+                "description": "Width",
+                "type": "int",
+                "default": 8
+            },
+            {
+                "name": "data",
+                "description": "Data",
+                "type": "ref",
+                "ref": "digital in out"
+            },
+            {
+                "name": "clock",
+                "description": "Clock",
+                "type": "ref",
+                "ref": "digital out"
+            },
+            {
+                "name": "strobe",
+                "description": "Strobe",
+                "type": "ref",
+                "ref": "digital out"
+            }
+        ]
+    },
+    "servo": {
+        "description": "Servos",
+        "max": 8,
+        "parts": [
+            {
+                "name": "id",
+                "description": "Id",
+                "type": "id"
+            },
+            {
+                "name": "pwm",
+                "description": "PWM",
+                "type": "ref",
+                "ref": "pwm channels"
+            },
+            {
+                "name": "minduty",
+                "description": "Min",
+                "type": "int",
+                "default": 110
+            },
+            {
+                "name": "maxduty",
+                "description": "Max",
+                "type": "int",
+                "default": 490
+            },
+            {
+                "name": "duty0",
+                "description": "Duty@0",
+                "type": "int",
+                "default": 300
+            },
+            {
+                "name": "dutyper10",
+                "description": "Duty/10°",
+                "type": "int",
+                "default": -20
+            }
+        ]
+    }
+}

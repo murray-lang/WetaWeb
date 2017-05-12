@@ -1,0 +1,17 @@
+{
+  "type": "weta_pin_collection",
+  "message0": "Pin Configuration %1 %2",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_statement",
+      "name": "PINS",
+      "check": "WetaPin"
+    }
+  ],
+  "colour": 0,
+  "tooltip": "Add pin configurations",
+  "helpUrl": ""
+}

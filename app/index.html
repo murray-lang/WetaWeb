@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="wetaApp" class="weta no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="wetaApp" class="weta no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="wetaApp" class="weta no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="wetaApp" class="weta no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Weta</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body class="weta">
+  <!--
+  <ul class="menu">
+    <li><a href="#!/blockly">Blockly</a></li>
+    <li><a href="#!/editor">{{'EDITOR' | translate}}</a></li>
+    <li><a href="#!/configure">{{'CONFIGURE' | translate}}</a></li>
+    <li><a href="#!/monitor">{{'MONITOR' | translate}}</a></li>
+  </ul>
+  -->
+  <div class="weta nav" ng-controller="NavCtrl as ctrl" ng-cloak >
+      <md-content>
+        <md-nav-bar
+                md-selected-nav-item="ctrl.currentNavItem"
+                nav-bar-aria-label="navigation links">
+          <md-nav-item md-nav-href="#!/blockly" name="blockly">Blockly</md-nav-item>
+          <md-nav-item md-nav-href="#!/editor" name="editor">{{'EDITOR' | translate}}</md-nav-item>
+          <md-nav-item md-nav-href="#!/configure" name="configure">{{'CONFIGURE' | translate}}</md-nav-item>
+          <!--<md-nav-item md-nav-href="#!/monitor" name="configure">{{'MONITOR' | translate}}</md-nav-item>-->
+
+           <div class="weta toolbar outer"
+                weta-common-toolbar=""></div>
+
+        </md-nav-bar>
+
+          <div class="weta view" ng-view></div>
+      </md-content>
+  </div>
+
+  <!--[if lt IE 7]>
+     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <!--<div class="weta view" ng-view></div>-->
+
+  <!--<div>Angular seed app: v<span app-version></span></div>-->
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+   -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="bower_components/angular-material/angular-material.min.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+  <!--<script src="bower_components/angular-translate/angular-translate.js"></script>-->
+  <script src="bower_components/angular-translate/angular-translate.min.js"></script>
+  <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+  <script src="components/justgage/raphael-2.1.4.min.js"></script>
+  <script src="components/justgage/justgage.js"></script>
+  <script src="components/weta/WetaBlockly.js"></script>
+  <script src="components/weta/WetaBlocklyProvider.js"></script>
+  <script src="components/weta/WetaConfigProvider.js"></script>
+  <script src="components/weta/WetaProfilesProvider.js"></script>
+  <script src="components/weta/WetaToolbarContextProvider.js"></script>
+  <script src="components/weta/WetaLocaleService.js"></script>
+  <script src="components/weta/WetaCommService.js"></script>
+  <script src="components/weta/WetaProfileService.js"></script>
+  <script src="components/weta/SimpleGauge.js"></script>
+  <script src="components/weta/WetaProfileUtils.js"></script>
+  <script src="components/weta/WetaConfigUtils.js"></script>
+  <script src="components/weta/WetaDeviceUtils.js"></script>
+  <script src="components/weta/WetaCommonToolbar.js"></script>
+  <script src="components/weta/WetaPinList.js"></script>
+  <script src="components/weta/WetaPeriphList.js"></script>
+  <script src="components/weta/WetaDeviceList.js"></script>
+  <script src="components/weta/WetaCompilerAssembler.js"></script>
+  <script src="components/weta/WetaCompilerService.js"></script>
+  <script src="components/weta/WetaCommDlg.js"></script>
+    <!-- Google Blockly files -->
+  <script src="components/Blockly/appengine/storage.js"></script>
+  <!--<script src="components/Blockly/blockly_compressed.js"></script>-->
+  <script src="components/Blockly/blockly_uncompressed.js"></script>
+  <script src="components/Blockly/blocks_compressed.js"></script>
+  <!--
+    <script src="components/Blockly/msg/js/en.js"></script>
+    -->
+  <!--
+  <script src="blockly/msg/en.js"></script>
+  -->
+  <script src="components/Blockly/blocks/weta/weta_control.js"></script>
+  <script src="components/Blockly/blocks/weta/weta_logic.js"></script>
+  <script src="components/Blockly/blocks/weta/weta_math.js"></script>
+  <script src="components/Blockly/blocks/weta/weta_text.js"></script>
+  <script src="components/Blockly/blocks/weta/weta_variable.js"></script>
+  <script src="components/Blockly/blocks/weta/weta_motors.js"></script>
+  <script src="components/Blockly/blocks/weta/weta_servos.js"></script>
+  <script src="components/Blockly/blocks/weta/weta_io.js"></script>
+  <script src="components/Blockly/blocks/weta/weta_time.js"></script>
+  <script src="components/Blockly/blocks/weta/weta_comms.js"></script>
+  <script src="components/Blockly/blocks/weta/weta_turtle.js"></script>
+
+  <script src="components/Blockly/javascript_compressed.js"></script>
+  <script src="components/Blockly/python_compressed.js"></script>
+  <script src="components/Blockly/php_compressed.js"></script>
+  <script src="components/Blockly/lua_compressed.js"></script>
+  <script src="components/Blockly/dart_compressed.js"></script>
+  <!--<script src="components/Blockly/logo_compressed.js"></script>-->
+
+  <script src="components/Blockly/generators/logo.js"></script>
+  <script src="components/Blockly/generators/logo/logic.js"></script>
+  <script src="components/Blockly/generators/logo/math.js"></script>
+  <script src="components/Blockly/generators/logo/text.js"></script>
+  <script src="components/Blockly/generators/logo/control.js"></script>
+  <script src="components/Blockly/generators/logo/list.js"></script>
+  <script src="components/Blockly/generators/logo/variable.js"></script>
+  <script src="components/Blockly/generators/logo/procedures.js"></script>
+  <script src="components/Blockly/generators/logo/weta.js"></script>
+  <!--
+  <script src="WetaCompilerAssembler.js"></script>
+  <script src="code.js"></script>
+  -->
+  <script src="blockly/blockly.js"></script>
+  <script src="editor/editor.js"></script>
+  <script src="configure/configure.js"></script>
+  <script src="monitor/monitor.js"></script>
+  <script src="app.js"></script>
+
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+
+</body>
+</html>

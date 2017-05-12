@@ -1,0 +1,59 @@
+
+<table class="weta toolbar">
+    <tr class="weta toolbar">
+        <td class="weta toolbar">
+            <div class="weta toolbar" layout="row" layout-align="end center">
+                <div class="weta toolbar" layout="row">
+                <span class="weta toolbar">{{'ROBOT_IP_ADDRESS' | translate}}:</span>
+                <input type="text"
+                       class="weta toolbar"
+                       ng-model="context.address"
+                       required="true"
+                       ng-pattern="/\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/"
+                />
+                </div>
+                <div class="weta toolbar" layout="row" ng-if="context.onChangeProfile">
+                    <span class="weta toolbar">{{'PROFILE' | translate}}:</span>
+                    <select class="weta toolbar"
+                            ng-model="current.name"
+                            ng-options="profile.name as profile.name for profile in profiles"
+                            ng-change="onProfileSelected()">
+                    </select>
+                </div>
+                <!--<span class="weta toolbar">{{'LANGUAGE' | translate}}:</span>-->
+                <select class="weta toolbar"
+                        ng-model="currentLanguage"
+                        ng-change="onLanguageChange()"
+                        ng-options="key as value for (key , value) in getLanguages()">
+                </select>
+            </div>
+        </td>
+    </tr>
+    <tr class="weta toolbar">
+        <td class="weta toolbar">
+            <div class="weta toolbar" layout="row" layout-align="end center">
+                <input type="file" id="uploadEl" style="display: none;"/>
+                <button class="weta toolbar" type="button"
+                        ng-click="onClickOpen()"
+                        ng-if="context.onFileSelected">{{'OPEN_BLOCKS' | translate}}</button>
+                <button class="weta toolbar" type="button"
+                        ng-click="onClickSave()"
+                        ng-if="context.onSave">{{'SAVE_BLOCKS' | translate}}</button>
+                <button class="weta toolbar" type="button"
+                        ng-click="onClickQuery()"
+                        ng-if="context.onQuery">{{'QUERY' | translate}}</button>
+                <div class="weta toolbar" layout="row" ng-if="context.onProgram">
+                    <button class="weta toolbar" type="button" ng-click="onClickProgram()">{{'PROGRAM' | translate}}</button>
+                    <!--<label class="weta toolbar" for="flashCheckbox">{{'ROM' | translate}}</label>-->
+                    <input type="checkbox"
+                           id="flashCheckbox"
+                           class="weta toolbar"
+                           ng-model="context.flash">{{'ROM' | translate}}</input>
+                </div>
+                <button class="weta toolbar" type="button"
+                        ng-click="onClickStop()"
+                        ng-if="context.onStop">{{'STOP_PROGRAM' | translate}}</button>
+            </div>
+        </td>
+    </tr>
+</table>

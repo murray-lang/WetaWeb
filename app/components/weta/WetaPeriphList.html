@@ -1,0 +1,91 @@
+<div ng-class="getClass('outer')"
+     layout="column"
+     layout-align="start center">
+    <table ng-class="getClass('noborder')" >
+        <thead ng-class="getClass()">
+        <tr ng-class="getClass()">
+            <th ng-class="getClass('title')" colspan="{{headers[periph][0][0].span}}">
+                {{config.profile.headers[periph][0][0].title | translate}}
+            </th>
+
+        </tr>
+        </thead>
+        <tbody ng-class="getClass()">
+
+        <tr ng-class="getClass()">
+            <td ng-class="getClass('noborder')"
+                ng-repeat="part in headers[periph][1] track by $index">
+                <table ng-class="getClass()">
+                    <thead ng-class="getClass()">
+                        <tr ng-class="getClass()"
+                            ng-if="part.name.length > 0">
+                            <th ng-class="getClass()"
+                                colspan="{{part.span}}">
+                                {{part.title | translate}}
+                            </th>
+
+                        </tr>
+                        <tr ng-class="getClass()">
+                            <th ng-class="getClass()"
+                                ng-repeat="item in part.items track by $index">
+                                <span ng-class="getClass()"
+                                    ng-if="getOption(part.name, item.name).type != 'button'">{{item.title | translate}}</span>
+                                <input type="button"
+                                    ng-class="getClass('add')"
+                                    value="+"
+                                    ng-click="addItem(part.name)"
+                                    ng-if="getOption(part.name, item.name).type == 'button'"/>
+                            </th>
+
+                        </tr>
+
+                    </thead>
+                    <tbody ng-class="getClass()">
+                    <tr ng-class="getClass()"
+                        ng-repeat="item in getCollection(part.name) | orderBy: '+id'">
+
+                        <td ng-class="getClass()"
+                            ng-repeat="opt in getOptions(part.name) track by $index">
+                            <span ng-if="opt.type == 'id'">{{item[opt.name]}}</span>
+                            <span ng-if="opt.type == 'pin'">{{item[opt.name]}}</span>
+                            <select ng-class="getClass()"
+                                    ng-model="item[opt.name]"
+                                    ng-options="(val | translate) for val in opt.enum"
+                                    ng-if="opt.type == 'enum'">
+                            </select>
+                            <select ng-class="getClass()"
+                                    ng-model="item[opt.name]"
+                                    ng-options="val for val in getColumn(opt.ref, 'id')"
+                                    ng-if="opt.type == 'ref'">
+                            </select>
+                            <input type="number"
+                                   ng-class="getClass()"
+                                   ng-model="item[opt.name]"
+                                   ng-if="opt.type == 'int'"/>
+                            <input type="button"
+                                   ng-class="getClass('remove')"
+                                   value="-"
+                                   ng-click="removeItem(part.name, item.id)"
+                                   ng-if="opt.type == 'button'"/>
+
+                            <input type="checkbox"
+                                   ng-class="getClass()"
+                                   ng-model="item[opt.name]"
+                                   ng-true-value="1"
+                                   ng-false-value="0"
+                                   ng-click="onClickCheckbox($event, item, opt.name)"
+                                   ng-if="opt.type == 'bool' && checkRequirements(item, opt)"/>
+
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>

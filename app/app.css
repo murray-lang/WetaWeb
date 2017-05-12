@@ -1,0 +1,506 @@
+/* app css stylesheet */
+
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2px; /*2em;*/
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.ng-invalid {
+    color: GrayText;
+}
+
+.weta
+{
+    background-color: white; /*dimgray;*/
+    /*text-shadow: 2px 2px 3px rgba(255,255,255,0.1);*/
+}
+
+html.weta {
+    margin: 0;
+    padding: 0;
+
+    /*border: solid thin red;*/
+}
+
+body.weta {
+    /*height: 90%;*/
+    margin: 0;
+    padding: 0;
+    /*bottom: 10px;*/
+    /*border: solid thin red;*/
+    overflow: hidden;
+}
+
+.invalid {
+    background-color: tomato;
+}
+
+.clash {
+    background-color: darkorange;
+}
+
+.weta.config #configPopupContainer {
+    position: relative;
+}
+
+div.weta.nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    /*
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    border: solid red;
+    */
+}
+
+md-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    /*border: solid thin green;*/
+}
+/*
+md-nav-bar {
+    border: solid thin deeppink;
+}
+*/
+.toolbar {
+    background-color: #fafafa;
+    margin-left: 2px;
+    margin-right: 2px;
+    font-size: 13px;
+    color: #555555;
+    /*
+    display: inline;
+
+    right: 0;
+    */
+}
+span.toolbar {
+    padding-top: 2px;
+    /*border: solid thin red;*/
+}
+
+div.weta.toolbar {
+    /*
+    position: absolute;
+    display: inline-block;
+
+    border: solid thin blue;
+    */
+}
+
+div.weta.toolbar.outer {
+
+    position: absolute;
+    display: inline-block;
+    /**/
+    right: 0;
+    bottom: 2px;
+    /*top: 8px;*/
+    /*border: solid thin red;*/
+}
+
+table.weta.toolbar {
+    border: none;
+    width: 100%;
+    height: 100%;
+    /*
+    position: absolute;
+
+    display: inline-block;
+    */
+    /*border: solid thin green;*/
+}
+
+td.weta.toolbar {
+    border: none;
+    /*
+    vertical-align: center;
+    text-align: center;
+    font-family: Arial;
+    font-style: normal;
+    font-size: 11px;
+    white-space: nowrap;
+    */
+}
+
+input[type=text].weta.toolbar {
+    width: 10em;
+    text-align: left;
+}
+
+input[type=checkbox].weta.toolbar {
+    margin: 2px;
+}
+
+div.weta.view {
+    position: absolute;
+    left: 0;
+    right: 1px;
+    top: 50px;
+    bottom: 0px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    /*border: solid thin red;*/
+}
+
+div.weta.connection {
+    display: inline-block;
+}
+
+div.weta.profile {
+    display: inline-block;
+}
+
+div.weta.config {
+}
+
+div.weta.config.options {
+    /*
+    display: block;
+    */
+}
+
+div.weta.caps {
+    box-shadow: 3px 3px 2px lightgrey;
+}
+
+div.weta.caps.main {
+    /*
+     position:relative;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    */
+}
+
+input[type=number].weta {
+    width: 50px;
+}
+
+div.weta.io {
+}
+
+
+
+div.weta.digital {
+    /*padding: 0;*/
+    box-shadow: 3px 3px 2px lightgrey;
+}
+
+div.weta.digital.main {
+    /*
+    position:relative;
+    top: 0;
+    */
+}
+
+div.weta.analog {
+    /*
+    display: block;
+    margin: 0;
+    padding: 0;
+    */
+
+}
+
+div.weta.uart.main {
+    /*
+    display: block;
+    margin: 0;
+    padding: 0;
+    */
+
+}
+
+div.weta.pwm.main {
+    /*
+    margin: 0;
+    padding: 0;
+    */
+
+}
+
+div.weta.pwm {
+    box-shadow: 3px 3px 2px lightgrey;
+}
+
+div.weta.pwm.outer {
+    box-shadow: none;
+}
+
+input[type=button].weta {
+    background-color: lightgray;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 2px;
+}
+
+input[type=button].weta.add {
+    color: green;
+}
+
+input[type=button].weta.remove {
+    color: red;
+    font-size: 20px;
+}
+
+div.weta.adc.main {
+    /*
+    margin: 0;
+    padding: 0;
+    top: 0;
+    display: inline-block;
+    */
+}
+
+div.weta.adc {
+    /*
+    margin: 0;
+    padding: 0;
+    display: block;
+    */
+    box-shadow: 3px 3px 2px lightgrey;
+}
+
+div.weta.dac.main {
+    /*
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    top: 0;
+    */
+    box-shadow: 3px 3px 2px lightgrey;
+}
+
+
+div.weta.devices {
+    /*
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    */
+}
+table.weta {
+    border: solid thin black;
+    border-collapse: collapse;
+}
+
+table.weta.noborder {
+    border: hidden;
+    width: 100%;
+}
+
+th.weta.title  {
+    border-top: hidden;
+    border-left: hidden;
+    border-right: hidden;
+    font-family: Arial;
+    font-style: italic;
+    font-size: 12px;
+    /*border-bottom: solid thin black;*/
+}
+
+table.weta.variant {
+    width: 100%;
+}
+
+table.weta.caps {
+}
+
+table.weta.digital {
+}
+
+table.weta.adc {
+    /*width: 50%;*/
+}
+
+table.weta.serial {
+    border: hidden;
+
+}
+
+/*
+tr.weta.digital:hover {
+    background-color: #34aadc;
+}
+
+tr.weta.digital:active {
+    background-color: #b3d4fc;
+
+}
+*/
+th.weta {
+    border: solid thin black;
+    vertical-align: center;
+    font-family: Arial;
+    font-style: normal;
+    font-size: 11px;
+    padding-left: 3px;
+    padding-right: 3px;
+    white-space: nowrap;
+}
+
+th.weta.noborder {
+    border: hidden;
+    border-collapse: collapse;
+    padding: 2px;
+}
+
+th.weta.addremove {
+    width: 99%;
+    text-align: right;
+}
+
+td.weta {
+    border: solid thin black;
+    vertical-align: center;
+    text-align: center;
+    font-family: Arial;
+    font-style: normal;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+td.weta.addremove {
+    width: 99%;
+    text-align: right;
+}
+
+td.weta.noborder {
+    border: hidden;
+    border-collapse: collapse;
+    vertical-align: top;
+    padding: 2px;
+}
+
+th.weta.serial {
+    border: hidden;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    /*border: 1px solid black;*/
+}
+
+td.weta.serial {
+    border: hidden;
+    text-align: center;
+    /*border: 1px solid black;*/
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.on {
+    /*background-color: green;*/
+    background-image: url("img/button-bezel-green.svg");
+    background-repeat:no-repeat;
+    background-position: 3px 3px !important;
+    background-size: 25px 25px;
+    height: 21px;
+    width: 21px;
+}
+
+.off {
+    /*background-color: red;*/
+    background-image: url("img/button-bezel-off.svg");
+    background-repeat:no-repeat;
+    background-position: 3px 3px !important;
+    background-size: 25px 25px;
+    height: 21px;
+    width: 21px;
+}
+
+#blocklyArea {
+    /*
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 47px;
+    text-align: center;
+    border: solid red;
+    */
+    /*border: solid blue;*/
+}
+
+div.weta.blockly {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    /*border: solid red;*/
+    /*
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    border: solid red;
+    */
+}
+
+table.weta.blockly {
+    width: 100%;
+    height: 100%;
+}
+
+#blocklyDiv {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+div.weta.editor {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+textarea.weta.editor {
+    width: 99%;
+    height: 99%;
+}

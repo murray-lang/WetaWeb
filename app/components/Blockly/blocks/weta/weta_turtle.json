@@ -1,0 +1,87 @@
+[
+    {
+        "type": "weta_turtle_forward_backward",
+        "message0": "%{BKY_WETA_TURTLE_FORWARD_BACKWARD_MSG0}",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "DIR",
+                "options": [
+                  [
+                    "%{BKY_WETA_FORWARD}",
+                    "forward"
+                  ],
+                  [
+                    "%{BKY_WETA_BACKWARD}",
+                    "backward"
+                  ]
+                ]
+            },
+            {
+                "type": "input_value",
+                "name": "VAL",
+                "check": "Number"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": "%{BKY_WETA_TURTLE_HUE}",
+        "tooltip": "%{BKY_WETA_TURTLE_FORWARD_TOOLTIP}",
+        "helpUrl": ""
+    },
+    {
+    "type": "weta_turtle_turn",
+    "message0": "%{BKY_WETA_TURTLE_TURN_MSG0}",
+    "args0": [
+      {
+        "type": "field_dropdown",
+        "name": "DIR",
+        "options": [
+          [
+            "%{BKY_WETA_LEFT}",
+            "left"
+          ],
+          [
+            "%{BKY_WETA_RIGHT}",
+            "right"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "DEGREES",
+        "check": "Number"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "%{BKY_WETA_TURTLE_HUE}",
+    "tooltip": "%{BKY_WETA_TURTLE_TURN_TOOLTIP}",
+    "helpUrl": ""
+  },
+    {
+        "type": "weta_turtle_pen",
+        "message0": "%{BKY_WETA_TURTLE_PEN_MSG0}",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "NAME",
+                "options": [
+                    [
+                        "%{BKY_WETA_UP}",
+                        "up"
+                    ],
+                    [
+                        "%{BKY_WETA_DOWN}",
+                        "down"
+                    ]
+                ]
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": "%{BKY_WETA_TURTLE_HUE}",
+        "tooltip": "%{BKY_WETA_TURTLE_PEN_TOOLTIP}",
+        "helpUrl": ""
+    }
+]

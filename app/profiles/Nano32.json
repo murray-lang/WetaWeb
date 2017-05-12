@@ -1,0 +1,561 @@
+{
+        "name": "Nano32",
+        "caps": {
+            "order": [
+                "din",
+                "dout",
+                "pwm",
+                "adc",
+                "dac",
+                "touch",
+                "i2c_scl",
+                "i2c_sda",
+                "spi_miso",
+                "spi_mosi",
+                "spi_sclk",
+                "spi_ss",
+                "uart_rx",
+                "uart_tx",
+                "uart_rts",
+                "uart_cts"
+            ],
+            "info": {
+                "din": {
+                    "heading": "IN",
+                    "description": "DIGITAL_INPUT",
+                    "group": "DIGITAL",
+                    "allowedWith": ["dout"]
+                },
+                "dout": {
+                    "heading": "OUT",
+                    "description": "DIGITAL_OUTPUT",
+                    "group": "DIGITAL",
+                    "allowedWith": ["din"]
+                },
+                "pwm": {
+                    "heading": "PWM",
+                    "description": "PULSE_WIDTH_MODULATION"
+                },
+                "adc": {
+                    "heading": "IN",
+                    "description": "ANALOG_INPUT",
+                    "group": "ANALOG"
+                },
+                "dac": {
+                    "heading": "OUT",
+                    "description": "ANALOG_OUTPUT",
+                    "group": "ANALOG"
+                },
+                "touch": {
+                    "heading": "TOUCH",
+                    "description": "TOUCH SENSOR"
+                },
+                "i2c_scl": {
+                    "heading": "SCL",
+                    "description": "I2C SCL",
+                    "group": "I2C"
+                },
+                "i2c_sda": {
+                    "heading": "SDA",
+                    "description": "I2C SDA",
+                    "group": "I2C"
+                },
+                "spi_miso": {
+                    "heading": "MISO",
+                    "description": "SPI MISO",
+                    "group": "SPI"
+                },
+                "spi_mosi": {
+                    "heading": "MOSI",
+                    "description": "SPI MOSI",
+                    "group": "SPI"
+                },
+                "spi_sclk": {
+                    "heading": "SCLK",
+                    "description": "SPI SCLK",
+                    "group": "SPI"
+                },
+                "spi_ss": {
+                    "heading": "SS",
+                    "description": "SPI SS",
+                    "group": "SPI"
+                },
+                "uart_rx": {
+                    "heading": "Rx",
+                    "description": "UART Rx",
+                    "group": "UART"
+                },
+                "uart_tx": {
+                    "heading": "Tx",
+                    "description": "UART Tx",
+                    "group": "UART"
+                },
+                "uart_rts": {
+                    "heading": "RTS",
+                    "description": "UART RTS",
+                    "group": "UART"
+                },
+                "uart_cts": {
+                    "heading": "CTS",
+                    "description": "UART CTS",
+                    "group": "UART"
+                }
+            },
+            "pins": [
+                {
+                    "pin": 1,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "uart_tx": 1,
+                    "lock": { "uart_tx": 1}
+                },
+                {
+                    "pin": 2,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "adc": 1,
+                    "touch": 1
+                },
+                {
+                    "pin": 3,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "uart_rx": 1,
+                    "lock": { "uart_rx": 1}
+                },
+                {
+                    "pin": 4,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "adc": 1,
+                    "touch": 1
+                },
+                {
+                    "pin": 5,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "spi_ss": 1
+                },
+                {
+                    "pin": 12,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "adc": 1,
+                    "touch": 1,
+                    "spi_miso": 1
+                },
+                {
+                    "pin": 13,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "adc": 1,
+                    "touch": 1,
+                    "spi_mosi": 1
+                },
+                {
+                    "pin": 14,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "adc": 1,
+                    "touch": 1,
+                    "spi_sclk": 1
+                },
+                {
+                    "pin": 15,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "adc": 1,
+                    "touch": 1,
+                    "spi_ss": 1
+                },
+                {
+                    "pin": 16,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "uart_rx": 1
+                },
+                {
+                    "pin": 17,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "uart_tx": 1
+                },
+                {
+                    "pin": 18,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "spi_sclk": 1
+                },
+                {
+                    "pin": 19,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "spi_miso": 1,
+                    "uart_cts": 1
+                },
+                {
+                    "pin": 21,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "i2c_sda": 1
+                },
+                {
+                    "pin": 22,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "i2c_scl": 1,
+                    "uart_rts": 1
+                },
+                {
+                    "pin": 23,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "spi_mosi": 1
+                },
+                {
+                    "pin": 25,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "adc": 1,
+                    "dac": 1
+                },
+                {
+                    "pin": 26,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "adc": 1,
+                    "dac": 1
+                },
+                {
+                    "pin": 27,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "adc": 1,
+                    "touch": 1
+                },
+                {
+                    "pin": 32,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "adc": 1,
+                    "touch": 1
+                },
+                {
+                    "pin": 33,
+                    "din": 1,
+                    "dout": 1,
+                    "pwm": 1,
+                    "adc": 1,
+                    "touch": 1
+                },
+                {
+                    "pin": 34,
+                    "din": 1,
+                    "adc": 1
+                },
+                {
+                    "pin": 35,
+                    "din": 1,
+                    "adc": 1
+                },
+                {
+                    "pin": 36,
+                    "din": 1,
+                    "adc": 1
+                }
+            ]
+        },
+        "functions": {
+            "digital": {
+                "description": "DIGITAL_IO",
+                "options": [
+                    {
+                        "name": "id",
+                        "description": "Id",
+                        "type": "id"
+                    },
+                    {
+                        "name": "io",
+                        "description": "GPIO",
+                        "type": "pin"
+                    },
+                    {
+                        "name": "in",
+                        "description": "IN",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "out",
+                        "description": "OUT",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "pullup",
+                        "description": "PULLUP",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "pulldown",
+                        "description": "PULLDOWN",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "opendrain",
+                        "description": "OPEN_DRAIN",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "invert",
+                        "description": "INVERT",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "debounce",
+                        "description": "DEBOUNCE",
+                        "type": "bool",
+                        "requires": ["in"]
+                    }
+                ]
+            },
+            "pwm": {
+                "description": "PULSE_WIDTH_MODULATION",
+                "parts": [
+                     {
+                        "name": "channels",
+                        "description": "CHANNELS",
+                        "max": 8,
+                        "options": [
+                            {
+                                "name": "id",
+                                "description": "CHANNEL",
+                                "type": "id",
+                                "default": 0
+                            },
+                            {
+                                "name": "io",
+                                "description": "GPIO",
+                                "type": "pin"
+                            },
+                            {
+                                "name": "timer",
+                                "description": "TIMER_ID",
+                                "type": "ref",
+                                "ref": "timers"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "timers",
+                        "description": "TIMERS",
+                        "max": 4,
+                        "options": [
+                            {
+                                "name": "id",
+                                "description": "Id",
+                                "type": "id",
+                                "default": 0
+                            },
+                            {
+                                "name": "frequency",
+                                "description": "FREQUENCY",
+                                "type": "int",
+                                "default": 100
+                            },
+                            {
+                                "name": "width",
+                                "description": "WIDTH",
+                                "type": "enum",
+                                "enum": [ 10, 11, 12, 13, 14, 15 ],
+                                "default": 10
+                            },
+                            {
+                                "name": "add",
+                                "description": "ADD_TIMER_TOOLTIP",
+                                "type": "button"
+                            }
+                        ]
+                    }
+
+                ]
+
+            },
+            "adc": {
+                "description": "ADC",
+                "parts": [
+                    {
+                        "name": "channels",
+                        "description": "CHANNELS",
+                        "max": 16,
+                        "options": [
+                            {
+                                "name": "id",
+                                "description": "CHANNEL",
+                                "type": "id",
+                                "order": [0, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+                                "default": 0
+                            },
+                            {
+                                "name": "io",
+                                "description": "GPIO",
+                                "type": "pin",
+                                "order": [36, 39, 32, 33, 34, 35, 4, 0, 2, 15, 13, 12, 14, 27, 25, 26],
+                                "default": 0
+                            },
+                            {
+                                "name": "gain",
+                                "description": "GAIN",
+                                "type": "enum",
+                                "enum": [0, -3, -6, -11],
+                                "default": 0
+                            }
+
+                        ]
+                    },
+                    {
+                        "name": "depth",
+                        "description": "RESOLUTION",
+                        "max": 1,
+                        "options": [
+                            {
+                                "name": "depth",
+                                "description": "DEPTH",
+                                "type": "enum",
+                                "enum": [ 9, 10, 11, 12 ],
+                                "default": 10
+                            }
+                        ]
+                    }
+                ]
+            },
+            "dac": {
+                "description": "DAC",
+                "max": 2,
+                "options": [
+                    {
+                        "name": "id",
+                        "description": "CHANNEL",
+                        "type": "id",
+                        "order": [1, 2],
+                        "default": 0
+                    },
+                    {
+                        "name": "io",
+                        "description": "GPIO",
+                        "type": "pin",
+                        "order": [25, 26],
+                        "default": 0
+                    }
+                ]
+            },
+            "uart": {
+                "description": "UART",
+                "max": 2,
+                "options": [
+                    {
+                        "name": "id",
+                        "description": "PORT",
+                        "type": "id"
+                    },
+                    {
+                        "name": "baud",
+                        "description": "Baud",
+                        "type": "enum",
+                        "enum": [9600, 19200, 38400, 57600, 115200],
+                        "default": 115200
+                    },
+                    {
+                        "name": "databits",
+                        "description": "DATA_BITS",
+                        "type": "enum",
+                        "enum": [5, 6, 7, 8],
+                        "default": 8
+                    },
+                    {
+                        "name": "parity",
+                        "description": "PARITY",
+                        "type": "enum",
+                        "enum": ["NONE", "EVEN", "ODD"],
+                        "default": "NONE"
+                    },
+                    {
+                        "name": "stopbits",
+                        "description": "STOP_BITS",
+                        "type": "enum",
+                        "enum": [1, 1.5, 2],
+                        "default": 1
+                    },
+                    {
+                        "name": "add",
+                        "description": "ADD_UART_TOOLTIP",
+                        "type": "button"
+                    }
+                ]
+            }
+        },
+        "touch_order": [
+            4,
+            0,
+            2,
+            15,
+            13,
+            12,
+            14,
+            27,
+            33,
+            32
+        ],
+        "uart_groups": [
+            {
+                "tx": 1,
+                "rx": 3,
+                "cts": 19,
+                "rts": 22
+            },
+            {
+                "tx": 17,
+                "rx": 16,
+                "cts": 255,
+                "rts": 255
+            }
+        ],
+        "spi_groups": [
+            {
+                "miso": 12,
+                "mosi": 13,
+                "sclk": 14,
+                "ss": 15
+            },
+            {
+                "miso": 19,
+                "mosi": 23,
+                "sclk": 18,
+                "ss": 5
+            }
+        ],
+        "i2c_groups": [
+            {
+                "scl": 22,
+                "sda": 21
+            }
+        ]
+    }

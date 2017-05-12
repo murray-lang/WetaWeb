@@ -1,0 +1,58 @@
+    .global _start	
+    .set DIGITAL_OPT_NONE, 0x0	
+    .set DIGITAL_OPT_INPUT, 0x1	
+    .set DIGITAL_OPT_OUTPUT, 0x2	
+    .set DIGITAL_OPT_PULLUP, 0x4	
+    .set DIGITAL_OPT_PULLDOWN, 0x8	
+    .set DIGITAL_OPT_OPEN_DRAIN, 0x10	
+    .set DIGITAL_OPT_INVERT, 0x20	
+    .set DIGITAL_OPT_DEBOUNCE, 0x40		
+    .data	
+    .text
+_start:	
+    uint8		0		; Abstract id of Digital	
+    uint8		14		; GPIO	
+    uint8		DIGITAL_OPT_INPUT + DIGITAL_OPT_PULLUP + DIGITAL_OPT_INVERT	
+    io.digital.config	
+    uint8		1		; Abstract id of Digital	
+    uint8		16		; GPIO	uint8		DIGITAL_OPT_OUTPUT + DIGITAL_OPT_INVERT	
+    io.digital.config	
+    uint8		2		; Abstract id of Digital	
+    uint8		23		; GPIO	
+    uint8		DIGITAL_OPT_OUTPUT	
+    io.digital.config	
+    uint8		3		; Abstract id of Digital	
+    uint8		5		; GPIO	
+    uint8		DIGITAL_OPT_OUTPUT	
+    io.digital.config	
+    uint8		4		; Abstract id of Digital	
+    uint8		2		; GPIO	
+    uint8		DIGITAL_OPT_OUTPUT	
+    io.digital.config	
+    uint8		5		; Abstract id of Digital	
+    uint8		4		; GPIO	
+    uint8		DIGITAL_OPT_OUTPUT	
+    io.digital.config	
+    uint8		6		; Abstract id of Digital	
+    uint8		17		; GPIO	
+    uint8		DIGITAL_OPT_OUTPUT	
+    io.digital.config	
+    uint8		0		; Timer ID	
+    uint16		100		; Frequency	
+    uint8		10		; Width in bits	
+    io.pwm.timer.config	
+    uint8		0		; Abstract id of PWM Channel	
+    uint8		19		; GPIO	
+    uint8		0		; Id of PWM timer	
+    io.pwm.channel.config	
+    uint8		1		; Abstract id of PWM Channel	
+    uint8		18		; GPIO	
+    uint8		0		; Id of PWM timer	
+    io.pwm.channel.config	
+    uint8		[object Object]		; Depth in bits	
+    io.adc.config	
+    uint8		0		; Abstract id of ADC channel	
+    int8		0		; Gain in dB (attenuation if negative)	
+    io.adc.channel.config	
+    exit		
+    .end"

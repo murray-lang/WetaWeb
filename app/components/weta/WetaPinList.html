@@ -1,0 +1,37 @@
+<div class="weta caps">
+    <table class="weta caps">
+        <thead class="weta caps">
+            <tr class="weta caps pin heading ">
+                <th class="weta caps pin heading title" colspan="{{config.profile.headers['caps'].row0.span}}">
+                    {{config.profile.headers['caps'].row0.title | translate}}
+                </th>
+            </tr>
+            <tr class="weta caps pin heading">
+                <th class="weta caps pin heading"
+                    ng-repeat="head in config.profile.headers['caps'].row1 track by $index"
+                    colspan="{{head.span}}">{{head.name | translate}}</th>
+            </tr>
+            <tr class="weta caps pin heading">
+                <th class="weta caps pin heading"
+                    ng-repeat="cap in config.profile.headers['caps'].row2 track by $index">{{cap | translate}}</th>
+            </tr>
+        </thead>
+        <tbody class="weta caps pin">
+            <tr class="weta caps pin"
+                ng-repeat="pin in config.profile.caps.pins track by $index">
+                <td class="weta caps pin">{{pin.pin}}</td>
+                <td class="weta caps pin"
+                    ng-repeat="cap in config.profile.caps.order track by $index">
+                    <input type="checkbox"
+                           class="weta caps pin"
+                           ng-disabled="(config.pinSelections | filter:{pin:pin.pin}:angular.equals)[0].lock"
+                           ng-model="(config.pinSelections | filter:{pin:pin.pin}:angular.equals)[0][cap]"
+                           ng-click="onCapClick($event, pin, cap)"
+                           ng-if="pin[cap]==1"/>
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>

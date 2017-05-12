@@ -1,0 +1,200 @@
+/* app css stylesheet */
+
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2px; /*2em;*/
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.ng-invalid {
+    color: GrayText;
+}
+
+.weta
+{
+    background-color: white; /*dimgray;*/
+    /*text-shadow: 2px 2px 3px rgba(255,255,255,0.1);*/
+}
+
+div.weta.config {
+    max-width:100%;
+    min-width:50%;
+
+}
+
+div.weta.caps {
+}
+
+div.weta.caps.main {
+    /*width: 55%;*/
+    position:relative;
+    float: left;
+    top: 0;
+    padding: 0;
+    /*display: inline-block;*/
+}
+
+div.weta.digital {
+    padding: 0;
+}
+
+div.weta.digital.main {
+    /*flex: 1;*/
+    position:relative;
+    top: 0;
+    float: left;
+    padding: 0;
+    /*display: inline-block;*/
+}
+
+div.weta.pwm.main {
+    /*flex: 1;*/
+    position:relative;
+    top: 0;
+    float: left;
+    padding: 0;
+    /*display: inline-block;*/
+}
+
+table.weta {
+    border: solid thin black;
+    border-collapse: collapse;
+}
+
+table.weta.caps {
+    border: solid thin black;
+    border-collapse: collapse;
+}
+
+table.weta.digital {
+    border: solid thin black;
+    border-collapse: collapse;
+    width: 100%
+}
+
+table.weta.serial {
+    border: hidden;
+
+}
+
+table.weta.adc {
+    border: hidden;
+
+}
+/*
+tr.weta.digital:hover {
+    background-color: #34aadc;
+}
+
+tr.weta.digital:active {
+    background-color: #b3d4fc;
+
+}
+*/
+th.weta {
+    border: solid thin black;
+    vertical-align: center;
+    font-family: Arial;
+    font-style: normal;
+    font-size: 0.7em;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+th.weta.caps {
+
+
+}
+
+th.weta.digital {
+}
+
+td.weta {
+    border: #solid thin black;
+    vertical-align: center;
+    text-align: center;
+    font-family: Arial;
+    font-style: normal;
+    font-size: 0.7em;
+}
+
+td.weta.caps {
+
+
+}
+
+td.weta.digital {
+}
+
+th.weta.serial {
+    border: hidden;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    /*border: 1px solid black;*/
+}
+
+td.weta.serial {
+    border: hidden;
+    text-align: center;
+    /*border: 1px solid black;*/
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.weta.adc {
+    /*color: black;*/
+    text-align: center;
+
+}
+
+th.weta.adc {
+    border: hidden;
+    text-align: center;
+}
+
+td.weta.adc {
+    border: hidden;
+    width: 150px;
+    height: 100px;
+    display: table-cell;
+}
+
+.on {
+    /*background-color: green;*/
+    background-image: url("img/button-bezel-green.svg");
+    background-repeat:no-repeat;
+    background-position: 3px 3px !important;
+    background-size: 25px 25px;
+    height: 21px;
+    width: 21px;
+}
+
+.off {
+    /*background-color: red;*/
+    background-image: url("img/button-bezel-off.svg");
+    background-repeat:no-repeat;
+    background-position: 3px 3px !important;
+    background-size: 25px 25px;
+    height: 21px;
+    width: 21px;
+}

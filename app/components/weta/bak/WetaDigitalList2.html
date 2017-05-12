@@ -1,0 +1,36 @@
+<div class="weta digital">
+    <table class="weta digital">
+        <thead class="weta digital">
+            <tr class="weta digital">
+                <th class="weta digital" colspan="{{digitalProfile.options.length}}">{{digitalProfile.description}}</th>
+            </tr>
+            <tr class="weta digital">
+                <th class="weta digital"
+                    ng-repeat="opt in digitalProfile.options track by $index">{{opt.description}}</th>
+            </tr>
+         </thead>
+        <tbody class="weta digital">
+            <!--
+            <tr class="weta digital">
+                <td class="weta digital">Val 1</td>
+                <td class="weta digital">Val 2</td>
+                <td class="weta digital">Val 3</td>
+            </tr>
+            -->
+            <tr class="weta digital"
+                ng-repeat="item in items | orderBy: '+io'">
+                <td class="weta digital"
+                    ng-repeat="attr in digitalProfile.options track by $index">
+                    <input type="checkbox"
+                           class="weta digital"
+                           ng-model="item[attr.name]"
+                           ng-true-value="1"
+                           ng-false-value="0"
+                           ng-if="attr.type == 'bool' && checkRequirements(item, attr)"
+                    />
+                    <span ng-if="attr.type != 'bool' && checkRequirements(item, attr)">{{item[attr.name]}}</span>
+                </td>
+            </tr>
+         </tbody>
+    </table>
+</div>

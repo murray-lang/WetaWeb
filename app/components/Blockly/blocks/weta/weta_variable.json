@@ -1,0 +1,194 @@
+[
+  {
+    "type": "variables_declare_array",
+    "message0": "%{BKY_WETA_DECLARE_ARRAY_MSG0}",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "NAME",
+        "variable": "item"
+      },
+      {
+        "type": "input_value",
+        "name": "VAL"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "%{BKY_VARIABLES_HUE}",
+    "tooltip": "%{BKY_WETA_DECLARE_ARRAY_TOOLTIP}",
+    "helpUrl": "http://www.example.com/"
+  },
+  {
+    "type": "variables_declare_typed_array",
+    "message0": "%{BKY_WETA_DECLARE_TYPED_ARRAY_MSG0}",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "NAME",
+        "variable": "item"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "TYPE",
+        "options": [
+          [
+            "Byte",
+            "byte"
+          ],
+          [
+            "Int16",
+            "short"
+          ],
+          [
+            "Int32",
+            "int"
+          ],
+          [
+            "Float",
+            "float"
+          ],
+          [
+            "Double",
+            "double"
+          ]
+        ]
+      },
+      {
+        "type": "input_value",
+        "name": "SIZE"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "%{BKY_VARIABLES_HUE}",
+    "tooltip": "%{BKY_WETA_DECLARE_TYPED_ARRAY_TOOLTIP}",
+    "helpUrl": "http://www.example.com/"
+  },
+  {
+    "type": "variables_reference",
+    "message0": "%{BKY_WETA_REFERENCE_MSG0}",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "NAME",
+        "variable": "item"
+      }
+    ],
+    "inputsInline": true,
+    "output": null,
+    "colour": "%{BKY_VARIABLES_HUE}",
+    "tooltip": "%{BKY_WETA_REFERENCE_TOOLTIP}",
+    "helpUrl": "http://www.example.com/"
+  },
+  {
+    "type": "variables_dereference",
+    "message0": "%{BKY_WETA_DEREFERENCE_MSG0}",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "NAME"
+      }
+    ],
+    "output": null,
+    "colour": "%{BKY_VARIABLES_HUE}",
+    "tooltip": "%{BKY_WETA_DEREFERENCE_TOOLTIP}",
+    "helpUrl": "http://www.example.com/"
+  },
+  {
+    "type": "variables_set_referenced_by",
+    "message0": "%{BKY_WETA_SET_REFERENCED_BY_MSG0}",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "NAME",
+        "variable": "item"
+      },
+      {
+        "type": "input_value",
+        "name": "VAL"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "%{BKY_VARIABLES_HUE}",
+    "tooltip": "%{BKY_WETA_SET_REFERENCED_BY_TOOLTIP0",
+    "helpUrl": "http://www.example.com/"
+  },
+  {
+    "type": "variables_set_array",
+    "message0": "%{BKY_WETA_SET_ARRAY_MSG0}",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "ITEM"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "DEREFERENCE",
+        "options": [
+          [
+            "array",
+            "false"
+          ],
+          [
+            "array referenced by",
+            "true"
+          ]
+        ]
+      },
+      {
+        "type": "field_variable",
+        "name": "NAME",
+        "variable": "item"
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_value",
+        "name": "VAL"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": "%{BKY_VARIABLES_HUE}",
+    "tooltip": "%{BKY_WETA_SET_ARRAY_TOOLTIP}",
+    "helpUrl": "http://www.example.com/"
+  },
+  {
+    "type": "variables_get_array",
+    "message0": "%{BKY_WETA_GET_ARRAY_MSG0}",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "ITEM"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "DEREFERENCE",
+        "options": [
+          [
+            "array",
+            "false"
+          ],
+          [
+            "array referenced by",
+            "true"
+          ]
+        ]
+      },
+      {
+        "type": "field_variable",
+        "name": "NAME",
+        "variable": "item"
+      }
+    ],
+    "inputsInline": true,
+    "output": null,
+    "colour": "%{BKY_VARIABLES_HUE}",
+    "tooltip": "%{BKY_WETA_GET_ARRAY_TOOLTIP}",
+    "helpUrl": "http://www.example.com/"
+  }
+]

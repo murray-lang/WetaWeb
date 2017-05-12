@@ -1,0 +1,76 @@
+<div ng-class="getClass()"
+     layout="column"
+     layout-align="start center">
+    <table ng-class="getClass('noborder')">
+        <thead ng-class="getClass()">
+        <tr ng-class="getClass()">
+            <th ng-class="getClass('title')">{{headers[0][0].title | translate}}</th>
+        </tr>
+        </thead>
+        <tbody ng-class="getClass()">
+
+        <tr ng-class="getClass()"
+            ng-repeat="variation in headers track by $index"
+            ng-init="varIndex = $index"
+            ng-if="!$first">
+            <td ng-class="getClass('noborder')">
+                <table ng-class="getClass('variant')">
+                    <thead ng-class="getClass()">
+                        <tr ng-class="getClass()">
+                            <th ng-class="getClass()"
+                                ng-repeat="part in variation" >
+                                {{part.description | translate}}
+                            </th>
+                            <th ng-class="getClass('addremove')">
+                                <input type="button"
+                                       ng-class="getClass('add')"
+                                       value="+"
+                                       ng-click="onClickAddDevice(varIndex - 1)"/>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody ng-class="getClass()">
+                        <tr ng-class="getItemClass(item, variation)"
+                            ng-repeat="item in config[device] | selectVariation: variation | orderBy: item.id">
+                            <td ng-class="getItemClass(item, variation)">
+                                <span ng-class="getItemClass(item, variation)">{{item['id']}}</span>
+                            </td>
+                            <td ng-class="getPartClass(item, part)"
+                                ng-repeat="part in variation"
+                                ng-if="part.name !== 'id'">
+
+                                <select ng-class="getPartClass(item, part)"
+                                        ng-model="item[part.name]"
+                                        ng-change="onChangeRef(item, part, {{item[part.name]}})"
+                                        ng-options="val.id as val.id disable when !itemAvailable(val, item, part.name) for val in findItems(part.ref)"
+                                        ng-if="part.type == 'ref'">
+                                </select>
+                                <input type="number"
+                                       ng-class="getPartClass(item, part)"
+                                       ng-model="item[part.name]"
+                                       ng-if="part.type == 'int'"/>
+
+                                <input type="checkbox"
+                                       ng-class="getPartClass(item, part)"
+                                       ng-model="item[part.name]"
+                                       ng-true-value="1"
+                                       ng-false-value="0"
+                                       ng-if="part.type == 'bool'"/>
+                            </td>
+                            <td ng-class="getClass('addremove')">
+                                <input type="button"
+                                       ng-class="getClass('remove')"
+                                       value="-"
+                                       ng-click="onClickRemoveDevice(item, headers[varIndex])"/>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>

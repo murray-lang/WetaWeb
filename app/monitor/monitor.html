@@ -1,0 +1,80 @@
+<!--<div ng-controller="MonitorCtrl as monctrl"-->
+<div     class="weta monitor">
+    <table class="weta">
+        <tr class="weta">
+            <td class="weta">
+                <table class="weta digital">
+                    <tr>
+                        <th></th>
+                        <td class="weta digital"
+                            ng-model-options = "monctrl.modelOptions"
+                            ng-repeat="inp in monctrl.status().digital.input track by $index">{{$index+1}}</td>
+                    </tr>
+                    <tr>
+                        <th class="weta digital">Digital Inputs</th>
+                        <td class="weta digital"
+                            ng-model-options = "monctrl.modelOptions"
+                            ng-repeat="inp in monctrl.status().digital.input track by $index"
+                            ng-class="{on: inp, off: !inp }"></td>
+                    </tr>
+                    <tr>
+                        <th class="weta digital">Digital Outputs</th>
+                        <td class="weta digital"
+                            ng-model-options = "monctrl.modelOptions"
+                            ng-repeat="op in monctrl.status().digital.output track by $index"
+                            ng-class="{on: op, off: !op }"></td>
+                    </tr>
+                </table>
+            </td>
+            <td class="weta">
+                <table  class="weta adc">
+                    <tr  class="weta adc">
+                        <td class="weta adc"
+                            ng-model-options = "monctrl.modelOptions"
+                            ng-repeat="val in monctrl.status().analog.input track by $index">
+                            <table class="weta adc">
+                                <tr class="weta adc">
+                                    <th class="weta adc">ADC {{$index + 1}}</th>
+                                </tr>
+                                <tr class="weta adc">
+                                    <td class="weta adc">
+                                        <div class="weta adc"
+                                             simple-gauge=""
+                                             gauge-id="adc{{$index}}"
+                                             gauge-relative-size="true"
+                                             gauge-show-pointer="true"
+                                             gauge-symbol="%"
+                                             gauge-min="0"
+                                             gauge-max="100"
+                                             gauge-value="{{val*100/1023}}"
+                                             gauge-font-colour-value="black"
+                                             gauge-font-colour-label="black">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="weta">
+                <table class="weta serial">
+                    <tr class="weta">
+                        <th class="weta serial">Serial Port</th>
+                        <th class="weta serial">Baud</th>
+                        <th class="weta serial">Data Bits</th>
+                        <th class="weta serial">Parity</th>
+                        <th class="weta serial">Stop Bits</th>
+                    </tr>
+                    <tr class="weta serial"
+                        ng-model-options = "monctrl.modelOptions"
+                        ng-repeat="port in monctrl.status().serial track by $index">
+                        <td  class="weta serial" ng-repeat="param in port">{{param}}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
